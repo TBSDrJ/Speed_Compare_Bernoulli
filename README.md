@@ -28,3 +28,4 @@ I'm compiling C and C++ code using the 2011 standard (`--std=c11` `--std=c++11`)
 |C++ v1, -O1 flag      |1.230 sec|962kB  |
 |C++ v1, -O2 flag      |1.227 sec|956kB  |
 |C++ v1, -Ofast flag   |1.220 sec|951kB  |
+|Python v1             |63.46 sec|5.763mB|
