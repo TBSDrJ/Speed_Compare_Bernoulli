@@ -33,3 +33,4 @@ When the table says, e.g. 'v1' that's my version number.
 |Python v1, with 3.10  |63.46 sec|5.763mB|
 |Python v1, with 3.11  |47.36 sec|6.849mB|
 
+An obvious conclusion from this is: "Python sux."  That is **so** not where I am going with this -- notice that the top language supported by Torch and Tensorflow is Python, and for good reasons.  The correct conclusion is: If you're doing serious number-crunching, don't do it in pure simple Python.  Pure Python is great for lots of stuff, I teach multiple years of it, I'm a huge supporter of Python and these results are not changing that at all.  It's not the right tool for every job.  Nor is C or Fortran the right tool for every job, even if they are much faster at number-crunching.
