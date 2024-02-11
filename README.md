@@ -18,6 +18,8 @@ I'm compiling C and C++ code using the 2011 standard (`--std=c11` `--std=c++11`)
 
 ## Results
 
+When the table says, e.g. 'v1' that's my version number.
+
 |Setup                 |Time     |RAM    |
 |:--------------------:|:-------:|:-----:|
 |C, no flags           |1.637 sec|940kB  |
@@ -28,4 +30,6 @@ I'm compiling C and C++ code using the 2011 standard (`--std=c11` `--std=c++11`)
 |C++ v1, -O1 flag      |1.230 sec|962kB  |
 |C++ v1, -O2 flag      |1.227 sec|956kB  |
 |C++ v1, -Ofast flag   |1.220 sec|951kB  |
-|Python v1             |63.46 sec|5.763mB|
+|Python v1, with 3.10  |63.46 sec|5.763mB|
+|Python v1, with 3.11  |47.36 sec|6.849mB|
+
