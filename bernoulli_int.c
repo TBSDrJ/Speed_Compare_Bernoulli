@@ -2,8 +2,8 @@
 #include<math.h>
 #include<stdbool.h>
 
-const long max_prime = 1000;
-const long num_primes = 168;
+const long max_prime = 5000;
+const long num_primes = 1000;
 
 // Calculates all primes up to max_prime (const set above)
 void calc_primes(long primes[]) {
@@ -38,7 +38,7 @@ void calc_primes(long primes[]) {
 // This helps calculate n^k (mod p) for large values of n^k
 long binary_places(int n) {
     long i;
-    for (i=1; i<32; i++) {
+    for (i=1; i<64; i++) {
         if ((n >> i) == 0) {
             break;
         }
@@ -80,13 +80,10 @@ long power_2_mod(long k, long p) {
 // Calculates the 3 powers part of Vandiver's Theorem 1
 // Notice that k here matches 2k in Bernoulli.md
 long three_powers_1(long p, long k) {
-    long result, p1, p2, p3;  
-    p1 = power_2_mod(p-2*k, p);
-    p2 = power_mod(3, p-2*k, p);
-    p3 = power_2_mod(2*p-4*k, p);
-    result = p1;
-    result += p2;
-    result -= p3;
+    long result;  
+    result = power_2_mod(p-2*k, p);
+    result += power_mod(3, p-2*k, p);
+    result -= power_2_mod(2*p-4*k, p);
     result -= 1;
     while (result < 0) {result += p;}
     while (result >= p) {result -= p;}
@@ -240,11 +237,11 @@ int main() {
             if (go_t_4) {
                 go_t_4 = false;
                 if (2*k % (p-1) == 2) {
-                    printf("Inconclusive: %li %li", p, k);
+                    printf("Inconclusive: %li %li", p, 2*k);
                 }
                 t_4 = three_powers_4(p, k);
                 if (t_4 == 0) {
-                    printf("Inconclusive: %li %li", p, k);
+                    printf("Inconclusive: %li %li", p, 2*k);
                 } else {
                     s_4 = sum_4(p, k);
                     if (s_4 == 0) {
