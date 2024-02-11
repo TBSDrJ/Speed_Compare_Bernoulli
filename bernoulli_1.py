@@ -17,7 +17,7 @@ def calc_primes() -> list[int]:
             primes.append(i)
     return primes
 
-def binary_places(n):
+def binary_places(n: int) -> int:
     for i in range(64):
         if (n >> i) == 0:
             break
