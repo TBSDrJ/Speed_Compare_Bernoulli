@@ -18,19 +18,20 @@ I'm compiling C and C++ code using the 2011 standard (`--std=c11` `--std=c++11`)
 
 ## Results
 
-When the table says, e.g. 'v1' that's my version number.
-
 |Setup                 |Time     |RAM    |
 |:--------------------:|:-------:|:-----:|
 |C, no flags           |1.637 sec|940kB  |
 |C, -O1 flag           |1.223 sec|940kB  |
 |C, -O2 flag           |1.223 sec|940kB  |
 |C, -Ofast flag        |1.227 sec|940kB  |
-|C++ v1, no flags      |1.630 sec|951kB  |
-|C++ v1, -O1 flag      |1.230 sec|962kB  |
-|C++ v1, -O2 flag      |1.227 sec|956kB  |
-|C++ v1, -Ofast flag   |1.220 sec|951kB  |
-|Python v1, with 3.10  |63.46 sec|5.763mB|
-|Python v1, with 3.11  |47.36 sec|6.849mB|
+|C++, no flags         |1.630 sec|951kB  |
+|C++, -O1 flag         |1.230 sec|962kB  |
+|C++, -O2 flag         |1.227 sec|956kB  |
+|C++, -Ofast flag      |1.220 sec|951kB  |
+|Python, with 3.10     |63.46 sec|5.763mB|
+|Python, with 3.11     |47.36 sec|6.849mB|
 
-An obvious conclusion from this is: "Python sux."  That is **so** not where I am going with this -- notice that the top language supported by Torch and Tensorflow is Python, and for good reasons.  The correct conclusion is: If you're doing serious number-crunching, don't do it in pure simple Python.  Pure Python is great for lots of stuff, I teach multiple years of it, I'm a huge supporter of Python and these results are not changing that at all.  It's not the right tool for every job.  Nor is C or Fortran the right tool for every job, even if they are much faster at number-crunching.
+An obvious conclusion from this is: "Python sux."  That is **so** not where I am going with this -- notice that the top language supported by Torch and Tensorflow is Python, and for good reasons.  The correct conclusion is: If you're doing serious number-crunching, don't do it in pure Python.  Pure Python is great for lots of stuff, I teach multiple years of it, I'm a huge supporter of Python and these results are not changing that at all.  It's not the right tool for every job.  Python is fantastic at allowing a programmer to develop much more complex code much more easily.  Nor is C or Fortran the right tool for every job, even if they are much faster at number-crunching.
+
+I was going to try a couple of other versions in some languages but there is so little reliance on lists/arrays that it wasn't really worth it, the speed difference didn't show up, so I'm not going to work on that here.
+
