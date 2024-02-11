@@ -4,26 +4,23 @@ The goal of this repo is primarily to compare efficiency of different languages 
 
 I wrote a brief survey of where Bernoulli numbers come from and why and how we might calculate all this stuff [here](Bernoulli.md).
 
-# Tests:
+# Test Assumptions
 
 In all of the tests, I am calculating time/memory using a Macbook Pro with an M1 Max processor running the following at command-line:
 
 ```/usr/bin/time -l program```
 
-Each is run 3 times, I take the average of the three.  The time value reported here is only the 'user' value, excluding the 'system' time.  The 'RAM' value reported is the 'peak memory footprint.'
+Each is run 3 times, I take the average of the three.  The time value reported here is only the 'user' value, excluding the 'system' time.  The 'RAM' value reported is the 'peak memory footprint.'  I'm using kB = 1000 bytes and mB = 1000000 bytes.
 
-## Calculate Powers of 2:
+I'm checking all of the integers less than 1000 for these tests.
 
-See folder 'powers_of_2' for code.
+I'm compiling C and C++ code using the 2011 standard (`--std=c11` `--std=c++11`).  I am running with multiple optimization flags on compile, see the table for details.
 
-It is possible to calculate $2^k$ either by using a built-in exponentiation function, or by bit-shifting a 1 over $k$ times.  In these, I calculated $2^0$, through $2^30$, assigning each to an `unsigned int` variable, 10 million times.
+## Results
 
-|C, bit shift|C, pow(2,k) |
-|:----------:|:----------:|
-|time  |RAM  |time  |RAM  |
-|:----:|:---:|:----:|:---:|
-|0.33s |929k |1.263s|940k |
-
-So, if you were curious: Yes, Virginia, there is a Santa Claus: bitshifting gives you back time and memory for free.
-
-## 
+|Setup            |Time     |RAM    |
+|:---------------:|:-------:|:-----:|
+|C, no flags      |1.637 sec|940kB  |
+|C, -O1 flag      |1.223 sec|940kB  |
+|C, -O2 flag      |1.223 sec|940kB  |
+|C, -Ofast flag   |1.227 sec|940kB  |

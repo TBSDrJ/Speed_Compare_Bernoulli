@@ -40,7 +40,7 @@ _Note:_ We choose to end with $k-1$ instead of $k$ in order to maintain consiste
 
 ## Later steps in the development of Bernoulli numbers
 
-If you want to read more about the emergence of the role of the Bernoulli Numbers in classical number theory and algebra, I found Paulo Ribenboim's _13 Lectures on Fermat's Last Theorem_ to be very helpful (though I was a couple of years into graduate study in mathematics before I read it, so YMMV).
+If you want to read more about the emergence of the role of the Bernoulli Numbers in classical number theory and algebra, I found Paulo Ribenboim's _13 Lectures on Fermat's Last Theorem_ to be very helpful (though I was a couple of years into graduate study in mathematics before I read it, so YMMV).  All of the theorems below are quoted from there (pgs 108-109).
 
 We know better ways to compute them now, and we certainly know a lot more about them than Jakob Bernoulli ever did.  There are a couple of important properties to know:
 
@@ -73,15 +73,15 @@ For the CS students in the audience, $a \equiv b \pmod{p}$ means the same as `a 
 
 _Theorem 1 (Vandiver)_ If $p$ is prime, $p \geq 5$, $k \geq 1$, and $p-1$ does not divide $2k$, then:
 
-$$\frac{2^{p-2k} + 3^{p-2k} - 4^{p-2k} - 1}{4k} \cdot B_{2k} \equiv \sum_{\frac{p}{4} < j < \frac{p}{3}} j^{2k-1} \pmod{p}$$
+$$(2^{p-2k} + 3^{p-2k} - 4^{p-2k} - 1) \cdot \frac{B_{2k}}{4k} \equiv \sum_{\frac{p}{4} < j < \frac{p}{3}} j^{2k-1} \pmod{p}$$
 
 To take this apart a little, we have three quantities, going left to right:
 
-$$\text{(Fraction)} \cdot \text{(Bernoulli number)} \equiv \text{Sum} \pmod{p}$$
+$$\text{(3 Powers)} \cdot \text{(Bernoulli number)} \equiv \text{Sum} \pmod{p}$$
 
 We want to know if the Bernoulli number is divisible by $p$, i.e. if the Bernoulli number $\equiv 0 \pmod{p}$.  So we have the following table of possibilities:
 
-|Fraction|Sum     |Bernoulli number|
+|3 Powers|Sum     |Bernoulli number|
 |:------:|:------:|:--------------:|
 |nonzero |zero    |gotta be zero   |
 |nonzero |nonzero |gotta be nonzero|
@@ -91,11 +91,11 @@ The bottom one is kind of unfortunate, and it does come up.  In the cases where 
 
 _Theorem 2 (Vandiver)_ If $p$ is prime, $p \geq 7$, $k \geq 1$, and $p-1$ does not divide $2k$, then:
 
-$$\frac{4^{p-2k} + 3^{p-2k} - 6^{p-2k} - 1}{4k} \cdot B_{2k} \equiv \sum_{\frac{p}{6} < j < \frac{p}{4}} j^{2k-1} \pmod{p}$$
+$$(4^{p-2k} + 3^{p-2k} - 6^{p-2k} - 1) \cdot \frac{B_{2k}}{4k} \equiv \sum_{\frac{p}{6} < j < \frac{p}{4}} j^{2k-1} \pmod{p}$$
 
 _Theorem 3 (Vandiver)_ If $p$ is prime, $p \geq 11$, $k \geq 1$, and $p-1$ does not divide $2k$, then:
 
-$$\frac{4^{p-2k} + 5^{p-2k} - 8^{p-2k} - 1}{4k} \cdot B_{2k} \equiv \sum_{\frac{p}{8} < j < \frac{p}{5}} j^{2k-1} + \sum_{\frac{3p}{8} < j < \frac{2p}{5}} j^{2k-1} \pmod{p}$$
+$$(4^{p-2k} + 5^{p-2k} - 8^{p-2k} - 1) \cdot \frac{B_{2k}}{4k} \equiv \sum_{\frac{p}{8} < j < \frac{p}{5}} j^{2k-1} + \sum_{\frac{3p}{8} < j < \frac{2p}{5}} j^{2k-1} \pmod{p}$$
 
 _Theorem 4 (Vandiver)_ If $p$ is prime and $2k \not \equiv 2 \pmod{p-1}$, then:
 
