@@ -36,6 +36,9 @@ void calc_primes(long primes[]) {
 // calculates the number of nonzero binary digits for n.
 // Value is equal to the floor(log2(n)) + 1, but this is faster.
 // This helps calculate n^k (mod p) for large values of n^k
+// I tried the function __builtin_clz which does basically the same thing
+//    but it slowed down the program a lot (e.g. 1.6s -> over 4s)
+// In Fortran, much faster to use the builtin.
 long binary_places(long n) {
     long i;
     for (i=1; i<64; i++) {
