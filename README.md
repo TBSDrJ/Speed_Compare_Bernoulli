@@ -42,11 +42,20 @@ I'm compiling C and C++ code using the 2011 standard (`--std=c11` `--std=c++11`)
 |JS in Firefox         |15.48 sec|?       |
 |JS in Chrome          |12.70 sec|?       |
 |JS in Safari          |16.61 sec|?       |
+|Fortran 90, no flags  |5.987 sec|1.038 mB|
+|Fortran 90, -O1 flag  |3.300 sec|1.038 mB|
+|Fortran 90, -O2 flag  |3.293 sec|1.033 mB|
+|Fortran 90,-Ofast flag|3.287 sec|1.033 mB|
+|F90, int, no flags    |5.987 sec|1.038 mB
 
 
 
 A series of mostly unrelated thoughts:
-+ The C/C++ unmarked versions use data type long for all integers, the ones marked 'int' substitute 'int' for 'long.'  Interestingly, this seems to save essentially no memory (e.g. in the C runs, some runs are using ~935kB and some ~951kB, the differences in usage are just in how many times it gets 935 vs 951.)
++ The C/C++/F90 unmarked versions use data type long for all integers, the ones marked 'int' substitute 'int' for 'long' (or kind=4 for kind=8 in F90).  Interestingly, this seems to save essentially no memory (e.g. in the C runs, some runs are using ~935kB and some ~951kB, the differences in usage are just in how many times it gets 935 vs 951.)  Interestingly, in Fortran, this didn't change a thing, where in C and C++, it slowed things down substantially.
+
++ I tried, in C, C++ and Fortran, to store the data and print the results at the end instead of printing as results came up, and this made essentially no difference in time.
+
++ I am quite surprised that Fortran was substantially slower than C, this has not been my experience with numerical computations.  I'm not sure what made this problem different.
 
 + An obvious conclusion from this is: "Python sux."  That is **so** not where I am going with this -- notice that the top language supported by Torch and Tensorflow is Python, and for good reasons.  The correct conclusion is: If you're doing serious number-crunching, don't do it in pure Python.  Pure Python is great for lots of stuff, I teach multiple years of it, I'm a huge supporter of Python and these results are not changing that at all.  It's not the right tool for every job.  Python is fantastic at allowing a programmer to develop much more complex code much more easily.  Nor is C or Fortran the right tool for every job, even if they are much faster at number-crunching.
 
