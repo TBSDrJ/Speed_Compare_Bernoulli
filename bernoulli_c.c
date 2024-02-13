@@ -172,7 +172,7 @@ long sum_3(long p, long k) {
     return result;
 }
 
-// Calculates the sum part of Vandiver's Theorem 2
+// Calculates the sum part of Vandiver's Theorem 4
 long sum_4(long p, long k) {
     long begin = 1;
     long end = (float) ((p-1)/2);

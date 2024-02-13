@@ -164,7 +164,7 @@ function sum_3(p, k) {
     return result;
 }
 
-// Calculates the sum part of Vandiver's Theorem 2
+// Calculates the sum part of Vandiver's Theorem 4
 function sum_4(p, k) {
     var begin = 1;
     var end = (p-1)/2;

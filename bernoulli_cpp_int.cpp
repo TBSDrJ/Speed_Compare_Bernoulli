@@ -170,7 +170,7 @@ int sum_3(int p, int k) {
     return result;
 }
 
-// Calculates the sum part of Vandiver's Theorem 2
+// Calculates the sum part of Vandiver's Theorem 4
 int sum_4(int p, int k) {
     int begin = 1;
     int end = (float) ((p-1)/2);
