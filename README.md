@@ -46,7 +46,9 @@ I'm compiling C and C++ code using the 2011 standard (`--std=c11` `--std=c++11`)
 |Fortran 90, -O1 flag  |3.300 sec|1.038 mB|
 |Fortran 90, -O2 flag  |3.293 sec|1.033 mB|
 |Fortran 90,-Ofast flag|3.287 sec|1.033 mB|
-|F90, int, no flags    |5.987 sec|1.038 mB
+|F90, int, no flags    |5.987 sec|1.038 mB|
+|F90, subr, no flags   |6.397 sec|1.033 mB|
+|F90, subr, -Ofast flag|3.287 sec|1.033 mB|
 
 
 
@@ -55,7 +57,7 @@ A series of mostly unrelated thoughts:
 
 + I tried, in C, C++ and Fortran, to store the data and print the results at the end instead of printing as results came up, and this made essentially no difference in time.
 
-+ I am quite surprised that Fortran was substantially slower than C, this has not been my experience with numerical computations.  I'm not sure what made this problem different.
++ I am quite surprised that Fortran was substantially slower than C, this has not been my experience with numerical computations.  I'm not sure what made this problem different.  I tried converting all the functions to subroutines to see if that would help, and it was slightly slower with no flags, and identical speed with flags.  I also tried moving all the functionality that isn't used more than once into the main function, and that also made precisely zero difference in run time (in `..._subroutine_2.f90`).
 
 + An obvious conclusion from this is: "Python sux."  That is **so** not where I am going with this -- notice that the top language supported by Torch and Tensorflow is Python, and for good reasons.  The correct conclusion is: If you're doing serious number-crunching, don't do it in pure Python.  Pure Python is great for lots of stuff, I teach multiple years of it, I'm a huge supporter of Python and these results are not changing that at all.  It's not the right tool for every job.  Python is fantastic at allowing a programmer to develop much more complex code much more easily.  Nor is C or Fortran the right tool for every job, even if they are much faster at number-crunching.
 
