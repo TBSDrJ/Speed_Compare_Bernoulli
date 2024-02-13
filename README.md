@@ -24,24 +24,19 @@ I'm compiling C and C++ code using the 2011 standard (`--std=c11` `--std=c++11`)
 |C, -O1 flag           |1.223 sec|940 kB  |
 |C, -O2 flag           |1.223 sec|940 kB  |
 |C, -Ofast flag        |1.227 sec|940 kB  |
-|C, int, no flags      |2.977 sec|940 kB  |
-|C, int, -O1 flag      |2.120 sec|935 kB  |
-|C, int, -O2 flag      |2.120 sec|946 kB  |
-|C, int, -Ofast flag   |2.117 sec|935 kB  |
 |C++, no flags         |1.630 sec|951 kB  |
 |C++, -O1 flag         |1.230 sec|962 kB  |
 |C++, -O2 flag         |1.227 sec|956 kB  |
 |C++, -Ofast flag      |1.220 sec|951 kB  |
+|Java                  |1.920 sec|7.916 mB|
+|C, int, no flags      |2.977 sec|940 kB  |
+|C, int, -O1 flag      |2.120 sec|935 kB  |
+|C, int, -O2 flag      |2.120 sec|946 kB  |
+|C, int, -Ofast flag   |2.117 sec|935 kB  |
 |C++, int, no flags    |3.033 sec|951 kB  |
 |C++, int, -O1 flag    |2.077 sec|956 kB  |
 |C++, int, -O2 flag    |2.070 sec|962 kB  |
 |C++, int, -Ofast flag |2.073 sec|956 kB  |
-|Python, with 3.9      |65.33 sec|4.894 mB|
-|Python, with 3.10     |63.46 sec|5.763 mB|
-|Python, with 3.11     |47.36 sec|6.849 mB|
-|JS in Firefox         |15.48 sec|?       |
-|JS in Chrome          |12.70 sec|?       |
-|JS in Safari          |16.61 sec|?       |
 |Fortran 90, no flags  |5.987 sec|1.038 mB|
 |Fortran 90, -O1 flag  |3.300 sec|1.038 mB|
 |Fortran 90, -O2 flag  |3.293 sec|1.033 mB|
@@ -49,6 +44,12 @@ I'm compiling C and C++ code using the 2011 standard (`--std=c11` `--std=c++11`)
 |F90, int, no flags    |5.987 sec|1.038 mB|
 |F90, subr, no flags   |6.397 sec|1.033 mB|
 |F90, subr, -Ofast flag|3.287 sec|1.033 mB|
+|JS in Firefox         |15.48 sec|?       |
+|JS in Chrome          |12.70 sec|?       |
+|JS in Safari          |16.61 sec|?       |
+|Python, with 3.9      |65.33 sec|4.894 mB|
+|Python, with 3.10     |63.46 sec|5.763 mB|
+|Python, with 3.11     |47.36 sec|6.849 mB|
 
 
 
@@ -58,6 +59,8 @@ A series of mostly unrelated thoughts:
 + I tried, in C, C++ and Fortran, to store the data and print the results at the end instead of printing as results came up, and this made essentially no difference in time.
 
 + I am quite surprised that Fortran was substantially slower than C, this has not been my experience with numerical computations.  I'm not sure what made this problem different.  I tried converting all the functions to subroutines to see if that would help, and it was slightly slower with no flags, and identical speed with flags.  I also tried moving all the functionality that isn't used more than once into the main function, and that also made precisely zero difference in run time (in `..._subroutine_2.f90`).
+
++ I am even more surprised that Java was faster than Fortran. This problem ran way faster in Java than I expected, quite different from my earlier experiences with Java.
 
 + An obvious conclusion from this is: "Python sux."  That is **so** not where I am going with this -- notice that the top language supported by Torch and Tensorflow is Python, and for good reasons.  The correct conclusion is: If you're doing serious number-crunching, don't do it in pure Python.  Pure Python is great for lots of stuff, I teach multiple years of it, I'm a huge supporter of Python and these results are not changing that at all.  It's not the right tool for every job.  Python is fantastic at allowing a programmer to develop much more complex code much more easily.  Nor is C or Fortran the right tool for every job, even if they are much faster at number-crunching.
 
