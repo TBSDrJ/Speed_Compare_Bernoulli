@@ -52,8 +52,6 @@ I'm compiling C and C++ code using the 2011 standard (`--std=c11` `--std=c++11`)
 |Python, with 3.10     |63.46 sec|5.763 mB|
 |Python, with 3.11     |47.36 sec|6.849 mB|
 
-
-
 A series of mostly unrelated thoughts:
 + The C/C++/F90 unmarked versions use data type long for all integers, the ones marked 'int' substitute 'int' for 'long' (or kind=4 for kind=8 in F90).  Interestingly, this seems to save essentially no memory (e.g. in the C runs, some runs are using ~935kB and some ~951kB, the differences in usage are just in how many times it gets 935 vs 951.)  Interestingly, in Fortran, this didn't change a thing, where in C and C++, it slowed things down substantially.
 
@@ -68,3 +66,5 @@ A series of mostly unrelated thoughts:
 + I was going to try a couple of other versions in some languages but there is so little reliance on lists/arrays that it wasn't really worth it, the speed difference didn't show up, so I'm not going to work on that here.
 
 + It's pretty clear that Python is increasing memory usage as it updates versions in exchange for gaining speed.  That's probably the choice I'd make at this point too.  Personally, I wish you could use command-line options to adjust this balance as is possible with C/C++/Fortran.  I tried the -O and -OO command-line flags in both 3.10 and 3.11 and it didn't make any noticeable difference in either time or RAM for this use case.  The optimization seems mostly dedicated to reducing introspection overhead, which I'm essentially not using.
+
++ This is my first experience with Pypy, and ... wow!  Reading the beginning of the docs, it looks like this problem was pretty much made to make Pypy look good, but it looks _really_ good.  The idea of being able to write code in Python and get ~95% of the performance of bare C is spectacular.
