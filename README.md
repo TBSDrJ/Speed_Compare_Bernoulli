@@ -18,39 +18,41 @@ I'm compiling C and C++ code using the 2011 standard (`--std=c11` `--std=c++11`)
 
 ## Results
 
+In order by speed:
+
 |Setup                 |Time     |RAM     |
 |:--------------------:|:-------:|:------:|
-|C, no flags           |1.637 sec|940 kB  |
-|C, -O1 flag           |1.223 sec|940 kB  |
-|C, -O2 flag           |1.223 sec|940 kB  |
-|C, -Ofast flag        |1.227 sec|940 kB  |
-|C++, no flags         |1.630 sec|951 kB  |
-|C++, -O1 flag         |1.230 sec|962 kB  |
-|C++, -O2 flag         |1.227 sec|956 kB  |
 |C++, -Ofast flag      |1.220 sec|951 kB  |
+|C, -O2 flag           |1.223 sec|940 kB  |
+|C, -O1 flag           |1.223 sec|940 kB  |
+|C, -Ofast flag        |1.227 sec|940 kB  |
+|C++, -O2 flag         |1.227 sec|956 kB  |
+|C++, -O1 flag         |1.230 sec|962 kB  |
+|C++, no flags         |1.630 sec|951 kB  |
+|C, no flags           |1.637 sec|940 kB  |
 |Pypy 3.10             |1.763 sec|2.681 mB|
 |Java                  |1.920 sec|7.916 mB|
-|C, int, no flags      |2.977 sec|940 kB  |
-|C, int, -O1 flag      |2.120 sec|935 kB  |
-|C, int, -O2 flag      |2.120 sec|946 kB  |
-|C, int, -Ofast flag   |2.117 sec|935 kB  |
-|C++, int, no flags    |3.033 sec|951 kB  |
-|C++, int, -O1 flag    |2.077 sec|956 kB  |
 |C++, int, -O2 flag    |2.070 sec|962 kB  |
 |C++, int, -Ofast flag |2.073 sec|956 kB  |
-|Fortran 90, no flags  |5.987 sec|1.038 mB|
-|Fortran 90, -O1 flag  |3.300 sec|1.038 mB|
-|Fortran 90, -O2 flag  |3.293 sec|1.033 mB|
+|C++, int, -O1 flag    |2.077 sec|956 kB  |
+|C, int, -Ofast flag   |2.117 sec|935 kB  |
+|C, int, -O1 flag      |2.120 sec|935 kB  |
+|C, int, -O2 flag      |2.120 sec|946 kB  |
+|C, int, no flags      |2.977 sec|940 kB  |
+|C++, int, no flags    |3.033 sec|951 kB  |
 |Fortran 90,-Ofast flag|3.287 sec|1.033 mB|
+|F90, subr, -Ofast flag|3.287 sec|1.033 mB|
+|Fortran 90, -O2 flag  |3.293 sec|1.033 mB|
+|Fortran 90, -O1 flag  |3.300 sec|1.038 mB|
+|Fortran 90, no flags  |5.987 sec|1.038 mB|
 |F90, int, no flags    |5.987 sec|1.038 mB|
 |F90, subr, no flags   |6.397 sec|1.033 mB|
-|F90, subr, -Ofast flag|3.287 sec|1.033 mB|
-|JS in Firefox         |15.48 sec|?       |
 |JS in Chrome          |12.70 sec|?       |
+|JS in Firefox         |15.48 sec|?       |
 |JS in Safari          |16.61 sec|?       |
-|Python, with 3.9      |65.33 sec|4.894 mB|
-|Python, with 3.10     |63.46 sec|5.763 mB|
 |Python, with 3.11     |47.36 sec|6.849 mB|
+|Python, with 3.10     |63.46 sec|5.763 mB|
+|Python, with 3.9      |65.33 sec|4.894 mB|
 
 A series of mostly unrelated thoughts:
 + The C/C++/F90 unmarked versions use data type long for all integers, the ones marked 'int' substitute 'int' for 'long' (or kind=4 for kind=8 in F90).  Interestingly, this seems to save essentially no memory (e.g. in the C runs, some runs are using ~935kB and some ~951kB, the differences in usage are just in how many times it gets 935 vs 951.)  Interestingly, in Fortran, this didn't change a thing, where in C and C++, it slowed things down substantially.
