@@ -87,7 +87,7 @@ We want to know if the Bernoulli number is divisible by $p$, i.e. if the Bernoul
 |nonzero |nonzero |gotta be nonzero|
 |zero    |anything|can't tell      |
 
-The bottom one is kind of unfortunate, and it does come up.  In the cases where the fraction turns out to be zero mod $p$, this test is inconclusive.  So we have similar theorems we can use that have the same kind of table of possibilities also when the tests are inconclusive:
+The bottom one is kind of unfortunate, and it does come up.  In the cases where the 3 powers part turns out to be zero mod $p$, this test is inconclusive.  So we have similar theorems we can use that have the same kind of table of possibilities also when the tests are inconclusive:
 
 _Theorem 2 (Vandiver)_ If $p$ is prime, $p \geq 7$, $k \geq 1$, and $p-1$ does not divide $2k$, then:
 
@@ -102,3 +102,5 @@ _Theorem 4 (Vandiver)_ If $p$ is prime and $2k \not \equiv 2 \pmod{p-1}$, then:
 $$2^{2k-1}pB_{2k} \equiv \sum_{j=1}^{(p-1)/2} (p-2j)^{2k} \pmod{p^3}$$
 
 We will use them in this order because they are currently in increasing order for computation time -- you can see this mostly in how many terms are in the sum portion.  The first two have the same number of terms there, but the first has two powers of two in the fraction (which are trivial to compute using bit shifting), where the second has only one so the first is a bit faster.
+
+Some years ago, I calculated all of irregular primes up to about 1.4 million (running a couple of dozen CPU cores 24/7 for about 6 months), and, in all those millions of cases, one of these 4 tests was sufficient to resolve the question of divisibility.
