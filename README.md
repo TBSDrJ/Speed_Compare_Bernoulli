@@ -28,6 +28,7 @@ I'm compiling C and C++ code using the 2011 standard (`--std=c11` `--std=c++11`)
 |C++, -O1 flag         |1.230 sec|962 kB  |
 |C++, -O2 flag         |1.227 sec|956 kB  |
 |C++, -Ofast flag      |1.220 sec|951 kB  |
+|Pypy 3.10             |1.763 sec|2.681 mB|
 |Java                  |1.920 sec|7.916 mB|
 |C, int, no flags      |2.977 sec|940 kB  |
 |C, int, -O1 flag      |2.120 sec|935 kB  |
