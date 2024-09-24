@@ -30,7 +30,7 @@ In order by speed:
 |C++, -O1 flag         |1.230 sec|962 kB  |
 |C++, no flags         |1.630 sec|951 kB  |
 |C, no flags           |1.637 sec|940 kB  |
-|Pypy 3.10             |1.763 sec|2.681 mB|
+|Pypy 3.10             |1.763 sec|26.81 mB|
 |Java                  |1.920 sec|7.916 mB|
 |C++, int, -O2 flag    |2.070 sec|962 kB  |
 |C++, int, -Ofast flag |2.073 sec|956 kB  |
