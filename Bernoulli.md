@@ -47,7 +47,7 @@ We know better ways to compute them now, and we certainly know a lot more about 
 + The Bernoulli numbers are all rational numbers, so they are fractions with an integer numerator and integer denominator.
 + They alternate between positive and negative.
 + The numerators grow at $O(n^n)$ -- "wicked fast" as we'd say in New England.  That's way faster than exponential, even faster than factorial.  
-+ The numerators grow much more slowly, and we have much more information about what is in them.
++ The denominators grow much more slowly, and we have much more information about what is in them.
 + From the Online Encyclopedia of Integer Sequences: [Numerators](http://oeis.org/A000367) and [Denominators](http://oeis.org/A002445).  (I was looking for a minute: "Why don't they have a sequence of the fractions?" "Oh, right, it's the Online Encyclopedia of _Integer_ Sequences.")
 + [From Wolfram Mathworld](https://mathworld.wolfram.com/BernoulliNumber.html)
 
@@ -103,4 +103,4 @@ $$2^{2k-1}pB_{2k} \equiv \sum_{j=1}^{(p-1)/2} (p-2j)^{2k} \pmod{p^3}$$
 
 We will use them in this order because they are currently in increasing order for computation time -- you can see this mostly in how many terms are in the sum portion.  The first two have the same number of terms there, but the first has two powers of two in the fraction (which are trivial to compute using bit shifting), where the second has only one so the first is a bit faster.
 
-Some years ago, I calculated all of irregular primes up to about 1.4 million (running a couple of dozen CPU cores 24/7 for about 6 months), and, in all those millions of cases, one of these 4 tests was sufficient to resolve the question of divisibility.
+Some years ago, I calculated all of irregular primes up to about 1.4 million (running a couple of dozen CPU cores 24/7 for about 6 months), and, in all those millions of pairings of $p$ and $k$, one of these 4 tests was sufficient to resolve the question of divisibility.
