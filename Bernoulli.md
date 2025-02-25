@@ -20,7 +20,7 @@ $$\sum_{i=1}^{k-1} i^4 = 1 + 16 + 81 + \ldots + (k-1)^4 = \frac{k(k-1)(2k-1)(3k^
 
 (The last one I didn't know off the top of my head, I'm following [this source](https://maa.org/press/periodicals/convergence/sums-of-powers-of-positive-integers-pierre-de-fermat-1601-1665-france) for that, but shifted, substituting my $k-1$ for her $n$.)
 
-Then, the $n^{\text{th}}$ Bernoulli Number is the coefficient of $k$ in the formula for $\displaystyle \sum_{i=1}^{k-1} i^n $ .  So, by this definition, the first  Bernoulli Numbers are:
+Then, the $n^{\text{th}}$ Bernoulli Number is the coefficient of $k$ in the formula for $\displaystyle \sum_{i=1}^{k-1} i^n\mathrm{ }$.  So, by this definition, the first  Bernoulli Numbers are:
 
 $$B_0 = 1$$
 
