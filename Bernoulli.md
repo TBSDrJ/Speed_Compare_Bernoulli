@@ -10,9 +10,9 @@ The first place that the Bernoulli Numbers arose was in the context of summation
 
 $$\sum_{i=1}^{k-1} i^0 = 1 + 1 + 1 + \ldots + 1\ (k-1 \text{ times}) = k-1$$
 
-$$\sum_{i=1}^{k-1} i^1 = 1 + 2 + 3 + \ldots + k-1 = \frac{(k+1)(k)}{2} = \frac{1}{2}k^2 - \frac{1}{2}k$$
+$$\sum_{i=1}^{k-1} i^1 = 1 + 2 + 3 + \ldots + k-1 = \frac{(k-1)(k)}{2} = \frac{1}{2}k^2 - \frac{1}{2}k$$
 
-$$\sum_{i=1}^{k-1} i^2 = 1 + 4 + 9 + \ldots + (k-1)^2 = \frac{k(k+1)(2k+1)}{6} = \frac{1}{3}k^3 - \frac{1}{2}k^2 + \frac{1}{6}k$$
+$$\sum_{i=1}^{k-1} i^2 = 1 + 4 + 9 + \ldots + (k-1)^2 = \frac{k(k-1)(2k-1)}{6} = \frac{1}{3}k^3 - \frac{1}{2}k^2 + \frac{1}{6}k$$
 
 $$\sum_{i=1}^{k-1} i^3 = 1 + 8 + 27 + \ldots + (k-1)^3 = \frac{k^2(k-1)^2}{4} = \frac{1}{4}k^4 - \frac{1}{2}k^3 + \frac{1}{4}k^2$$
 
