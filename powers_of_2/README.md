@@ -4,8 +4,7 @@ It is possible to calculate $2^k$ either by using a built-in exponentiation func
 
 |C, bit shift|C, pow(2,k) |
 |:----------:|:----------:|
-|time  |RAM  |time  |RAM  |
-|:----:|:---:|:----:|:---:|
-|0.33s |929k |1.263s|940k |
+|time, RAM  |time, RAM  |
+|0.33s, 929k |1.263s, 940k |
 
 So, if you were curious: Yes, Virginia, there is a Santa Claus: bitshifting gives you back time and memory for free.
