@@ -56,7 +56,6 @@ long power_mod(long n, long k, long p) {
     long running = n, result = 1;
     long i, bin_pl_k;
     bin_pl_k = binary_places(k);
-    // printf("%li %li", k, bin_pl_k);
     long* results = (long*) malloc(bin_pl_k * sizeof(long));
     results[0] = n;
     for (i=1; i<bin_pl_k; i++) {
