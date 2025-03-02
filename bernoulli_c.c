@@ -96,7 +96,7 @@ long three_powers_1(long p, long k) {
 // Calculates the 3 powers part of Vandiver's Theorem 2
 long three_powers_2(long p, long k) {
     long result;  
-    result = power_2_mod(2*p-4*k, p);;
+    result = power_2_mod(2*p-4*k, p);
     result += power_mod(3, p-2*k, p);
     result -= power_mod(6, p-2*k, p);
     result -= 1;
@@ -108,7 +108,7 @@ long three_powers_2(long p, long k) {
 // Calculates the 3 powers part of Vandiver's Theorem 3
 long three_powers_3(long p, long k) {
     long result;  
-    result = power_2_mod(2*p-4*k, p);;
+    result = power_2_mod(2*p-4*k, p);
     result += power_mod(5, p-2*k, p);
     result -= power_2_mod(3*p-6*k, p);
     result -= 1;
