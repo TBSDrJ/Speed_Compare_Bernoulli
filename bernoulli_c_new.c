@@ -3,8 +3,8 @@
 #include<stdbool.h>
 #include<stdlib.h>
 
-const long max_prime = 2000;
-const long num_primes = 300;
+const long max_prime = 40000;
+const long num_primes = 4500;
 
 // Calculates all primes up to max_prime (const set above)
 void calc_primes(long primes[]) {
