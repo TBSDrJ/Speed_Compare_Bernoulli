@@ -3,8 +3,8 @@
 #include<stdbool.h>
 #include<stdlib.h>
 
-const long max_prime = 1000;
-const long num_primes = 170;
+const long max_prime = 2000;
+const long num_primes = 300;
 
 // Calculates all primes up to max_prime (const set above)
 void calc_primes(long primes[]) {
@@ -53,17 +53,24 @@ long binary_places(long n) {
 // Calculates n^k (mod p) even when n^k is much larger than the data type holds.
 // Assumes n < p.
 long power_mod(long n, long k, long p) {
-    long result = n;
-    long bin_pl, i;
-    bin_pl = binary_places(n);
-    for (i=1; i<k; i++) {
-        if (result >> (64 - bin_pl - 1) == 0) {
-            result *= n;
-        } else {
+    long running = n, result = 1;
+    long i, bin_pl_k;
+    bin_pl_k = binary_places(k);
+    // printf("%li %li", k, bin_pl_k);
+    long* results = (long*) malloc(bin_pl_k * sizeof(long));
+    results[0] = n;
+    for (i=1; i<bin_pl_k; i++) {
+        running %= p;
+        running *= running;
+        results[i] = running;
+    }
+    for (i=0; i<bin_pl_k; i++) {
+        if (k >> (i+1) << (i+1) != k >> i << i) {
+            result *= results[i];
             result %= p;
-            result *= n;
         }
     }
+    free(results);
     return result % p;
 }
 
