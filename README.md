@@ -4,6 +4,14 @@ The goal of this repo is primarily to compare efficiency of different languages 
 
 I wrote a brief survey of where Bernoulli numbers come from and why and how we might calculate all this stuff [here](Bernoulli.md).
 
+# Speed-Up
+
+After I did all this, I realized that I could do the calculation a lot faster, and was able to improve from $O(n^2)$ to $O(nlogn)$.  I'm not going to change all the different languages' versions to incorporate, I don't think it'll change much in the relative speed from one language to another, so the point of the repo is still preserved with the $O(n^2)$ algorithm.  
+
+But if you actually want to compute Bernoulli numbers, use the program called `bernoulli_c_new.c` in place of any of the others.  I used `bernoulli.c` to do all of the computations for primes less than 40,000 and it took ~2.24M seconds of compute time (25 days, 21 hours, 33 minutes, 39 seconds).  Then, I re-did it with `bernoulli_c_new.c` and it was done in 5350 seconds (1 hour, 29 minutes, 10 seconds).  Whoa, that's a *lot* faster.
+
+Now, I need to figure out how to get that algorithm on CUDA...
+
 # Test Assumptions
 
 In all of the tests, I am calculating time/memory using a Macbook Pro with an M1 Max processor running the following at command-line:
@@ -71,3 +79,7 @@ A series of mostly unrelated thoughts:
 + It's pretty clear that Python is increasing memory usage as it updates versions in exchange for gaining speed.  That's probably the choice I'd make at this point too.  Personally, I wish you could use command-line options to adjust this balance as is possible with C/C++/Fortran.  I tried the -O and -OO command-line flags in both 3.10 and 3.11 and it didn't make any noticeable difference in either time or RAM for this use case.  The optimization seems mostly dedicated to reducing introspection overhead, which I'm essentially not using.
 
 + This is my first experience with Pypy, and ... wow!  Reading the beginning of the docs, it looks like this problem was pretty much made to make Pypy look good, but it looks _really_ good.  The idea of being able to write code in Python and get ~95% of the performance of bare C is spectacular.
+
+# License
+
+All code in the repository is covered by the Creative Commons Attribution - Share Alike License, 4.0, https://creativecommons.org/licenses/by-sa/4.0/
