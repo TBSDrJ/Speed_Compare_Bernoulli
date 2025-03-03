@@ -4,3 +4,4 @@
 **/*.txt
 **/*.so
 check_bn/**
+calc_bn/**

@@ -1,3 +1,10 @@
+/* 
+Author: TBSDrJ
+Date: Spring 2025
+Improve power_mod() function to be O(log n) instead of O(n).  Huge speedup.
+License: CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
+*/
+
 #include<stdio.h>
 #include<math.h>
 #include<stdbool.h>
